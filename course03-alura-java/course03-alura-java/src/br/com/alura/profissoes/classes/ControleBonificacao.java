@@ -1,0 +1,15 @@
+package br.com.alura.profissoes.classes;
+
+public class ControleBonificacao {
+    
+    private double soma;
+
+    public void registra(Funcionario funcionario) {
+        double bonificacao = funcionario.getBonificacao();
+        this.soma += bonificacao;    
+    }
+
+    public double getSoma() {
+        return this.soma;
+    }
+}
