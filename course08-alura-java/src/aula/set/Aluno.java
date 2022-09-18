@@ -2,7 +2,7 @@ package aula.set;
 
 import java.util.Objects;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
     private String nome;
     private String cpf;
     private int numeroMatricula;
@@ -55,5 +55,10 @@ public class Aluno {
     @Override
     public int hashCode() {
         return Objects.hash(getNome(), getNumeroMatricula());
+    }
+
+    @Override
+    public int compareTo(Aluno a1) {
+        return this.getNome().compareTo(a1.getNome());
     }
 }

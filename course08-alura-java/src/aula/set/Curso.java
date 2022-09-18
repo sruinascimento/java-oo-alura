@@ -8,6 +8,7 @@ public class Curso {
     private String instrutor;
     private List<Aula> aulas;
     private Set<Aluno> alunos;
+    private Map<Integer, Aluno> matricula;
 
 
     public Curso(String nome, String instrutor) {
@@ -15,6 +16,7 @@ public class Curso {
         this.instrutor = instrutor;
         this.aulas = new ArrayList<>();
         this.alunos = new HashSet<>();
+        this.matricula = new HashMap<>();
     }
 
     public String getNome() {
@@ -43,8 +45,16 @@ public class Curso {
 
     public void matricula(Aluno aluno) {
         this.alunos.add(aluno);
+        this.matricula.put(aluno.getNumeroMatricula(), aluno);
     }
 
+    public Map<Integer, Aluno> getMatricula() {
+        return Collections.unmodifiableMap(matricula);
+    }
+
+    public Aluno buscaAlunoPelaMatricula(int matricula) {
+        return this.matricula.get(matricula);
+    }
     public void adicionaAula(Aula aula) {
         this.aulas.add(aula);
     }
